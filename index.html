@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolando Rolas</title>
+    <link rel="shortcut icon" href="./assets/img/music-note.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/styleLogin.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <script src="https://unpkg.com/feather-icons"></script>
+</head>
+</head>
+
+<body>
+    <div class="container-fluid">
+       <div class="row">
+        <div class="col">
+            <form>
+                <div class="login-form">
+                    <h1>Inicia Sesión</h1>
+                    <div class="form-group mt-3 ">
+                        <label for="username"> <i data-feather="user"></i>  Usuario</label>
+                        <input type="text" class="form-control mt-3" placeholder="Usuario " id="username" required>
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="form-group log-status">
+                        <label for="password"> <i data-feather="lock"></i>  Contraseña</label>
+                        <input type="password" class="form-control mt-3" placeholder="Contraseña" id="password" required>
+                    </div>
+                    <span class="alert">Credenciales inválidas</span>
+                    <button type="submit" class="log-btn">Iniciar Sesión</button>
+                </div>
+            </form> 
+        </div>
+       </div>
+    </div>
+
+    <script>
+
+        feather.replace()
+
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault()
+            window.location.href = '../views/home.html'
+        })
+
+        //-----------------------------//
+        $(document).ready(function(){
+    $('.log-btn').click(function(){
+        $('.log-status').addClass('wrong-entry');
+       $('.alert').fadeIn(500);
+       setTimeout( "$('.alert').fadeOut(1500);",3000 );
+    });
+    $('.form-control').keypress(function(){
+        $('.log-status').removeClass('wrong-entry');
+    });
+
+});
+
+    </script>
+    <script src="./js/bootstrap.min.js"></script>
+</body>
+</html>
